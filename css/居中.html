@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<!-- 
+<body>
+  <div class="wrapper">
+    <div class="imgWrapper">
+      <img src="http://img9.vilipix.com/picture/logo/2021/01/16/19/39/19610301_3f750ac7559f829ee2fdab2a25637e07_170.jpg"
+        alt="">
+    </div>
+    <p>123</p>
+  </div>
+  <style>
+    .wrapper {
+      height: 100vh;
+      display: table;
+    }
+
+    /* img必须包裹 */
+    .imgWrapper {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    p {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+  </style>
+</body> -->
+<!-- <body>
+  <div class="wrapper">
+    <img src="http://img9.vilipix.com/picture/logo/2021/01/16/19/39/19610301_3f750ac7559f829ee2fdab2a25637e07_170.jpg"
+      alt="">
+  </div>
+  <style>
+    .wrapper {
+      height: 100vh;
+      position: relative;
+    }
+
+    img {
+      position: absolute;
+      /* 相对于父 */
+      top: 50%;
+      left: 50%;
+      /* 相对于自己 */
+      transform: translate(-50%, -50%);
+    }
+
+  </style>
+</body> -->
+
+<body>
+  <div class="flexbox">
+    <img src="http://img9.vilipix.com/picture/logo/2021/01/16/19/39/19610301_3f750ac7559f829ee2fdab2a25637e07_170.jpg"
+      alt="">
+    <p>123</p>
+  </div>
+  <style>
+    .flexbox {
+      height: 100vh;
+      display: flex;
+      /* 让所有元素在副轴上居中 */
+      /* align-items: center; */
+      justify-content: center;
+    }
+
+    .flexbox img {
+      /* 只让自己在副轴上居中 */
+      align-self: center;
+    }
+
+  </style>
+</body>
+
+</html>
