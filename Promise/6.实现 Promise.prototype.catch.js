@@ -3,6 +3,10 @@
    * 所以仅处理失败的场景
    * @param {*} onRejected
    */
-Promise.prototype.catch = function(onRejected) {
-  return this.then(null, onRejected);
+Promise.prototype._catch = function (onRejected) {
+  return this.then(null, onRejected)
 }
+
+//!——————TEST
+
+Promise.reject('err')._catch(console.log)

@@ -4,28 +4,32 @@
    * 并且按照顺序将所有结果汇总
    * @param {Iterable} proms
    */
-//? 和promise.all的区别:不会因为一个reject全部reject
-//? how:把所有的promise都用Promise.resolve()包裹一层再调用.then(onFulfilled, onRejected))
-// 与 Promise.all 不同的是，当 promise 被 reject 之后，不会直接 reject ，而是记录下该 reject 的值和对应的状态 'rejected' ；
-//依赖Promise.all
-Promise._allSettled = function (proms) {
-  //* 需要可迭代 proms[Symbol.iterator]
+//* 和promise.all的区别:不会因为一个reject全部reject
+//* how:把所有的promise都用Promise.resolve()包裹一层
+//*     再调用.then(onFulfilled, onRejected)) 处理rejected的值
+//? 与 Promise.all 不同的是，当 promise 被 reject 之后，不会直接 reject 
+//? 而是记录下该 reject 的值和对应的状态 'rejected' ；
+//!依赖Promise.all
+Promise._allSettled = (proms) => {
+  if (proms === null || typeof proms[Symbol.iterator] !== 'function') {
+    return Error('not iterator')
+  }
   const arr = []
   const onFulfilled = (value) => ({
-    status: 'fullfilled',
-    value,
+    status: 'fulfilled',
+    value
   })
   const onRejected = (reason) => ({
     status: 'rejected',
-    reason,
+    reason
   })
-  for (p of proms) {
+  for (const p of proms) {
     arr.push(Promise.resolve(p).then(onFulfilled, onRejected))
   }
   return Promise.all(arr)
 }
+//!————————————————————test
 
-//test
 const pro = new Promise((resolve, reject) => {
   setTimeout(() => {
     reject(3);
