@@ -10,6 +10,7 @@ const deepClone = (target, map = new Map()) => {
   if (map.has(target)) return map.get(target)//* 如果在map中已经存在,就直接取出之前的拷贝
   // 设置一个拷贝 保证原型链与属性的特性一致
   const clone = Object.create(Object.getPrototypeOf(target), Object.getOwnPropertyDescriptors(target))
+
   // 添加到map
   map.set(target, clone)
   //* 遍历属性 
