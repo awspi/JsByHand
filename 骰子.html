@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .all {
+        width: 100px;
+        height: 100px;
+        position: relative;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: black;
+        position: absolute;
+    }
+
+    .dot-left {
+        left: 0
+    }
+
+    .dot-right {
+        right: 0
+    }
+
+    .dot-top {
+        top: 0
+    }
+
+    .dot-bottom {
+        bottom: 0
+    }
+
+    .dot-middle {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+</style>
+
+<body>
+    <div class="all">
+        <span class="dot dot-left dot-top"></span>
+        <span class="dot dot-right dot-top"></span>
+        <span class="dot dot-middle"></span>
+        <span class="dot dot-left dot-bottom"></span>
+        <span class="dot dot-right dot-bottom"></span>
+    </div>
+</body>
+
+</html>
