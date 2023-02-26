@@ -28,3 +28,6 @@ type myReadonly<T> = {
   readonly [P in keyof T]: T[P];
 };
 
+type myPartial1<T>={
+  [P in keyof T]?:T[P]
+}
