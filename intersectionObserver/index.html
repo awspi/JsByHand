@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Parcel Sandbox</title>
+  <meta charset="UTF-8" />
+</head>
+
+<body>
+  <h2 style="position:fixed;left:10px;top:10px;">区域内为绿色</h2>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+</body>
+<style>
+  .item {
+    color: #fff;
+    background-color: chocolate;
+    width: 300px;
+    height: 300px;
+    margin: 30px;
+    font-size: 50px;
+    text-align: center;
+    /* line-height: 300px; */
+  }
+
+  .active {
+    background-color: mediumseagreen;
+  }
+
+</style>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      //entry.target 获取到dom
+      console.log(entry.target.classList.toggle('active', entry.isIntersecting));
+    })
+  }, {
+    root: null, // 默认为null 即为视口
+    threshold: .5 // 元素进入50%才触发
+  });
+  const list = document.querySelectorAll(".item")
+  list.forEach(item => void observer.observe(item))
+
+</script>
+
+</html>
