@@ -1,6 +1,9 @@
 class eventEmitter {
   constructor() {
     this._event = {}
+    // {
+    //   name: [fn]
+    // }
   }
   on(eventName, fn) {
     if (this._event[eventName]) {
