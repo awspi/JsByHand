@@ -3,7 +3,7 @@ function curry(fn) {
   let judge = (...args) => {
     // Function.length
     // length 属性指明函数的形参个数
-    // fn.length 永远是当初传入的那个函数的形参个数
+    //? fn.length 永远是当初传入的那个函数的形参个数
     if (args.length === fn.length) return fn(...args)
     return (...restArgs) => judge(...args, ...restArgs)
   }
