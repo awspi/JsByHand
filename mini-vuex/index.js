@@ -43,7 +43,7 @@ class Store {
     entry && entry(this.state, payload);
   };
   /**
-   * 调用aciton 传入store实例和payload
+   * 调用action 传入store实例和payload
    * @param {*} type
    * @param {*} payload
    */

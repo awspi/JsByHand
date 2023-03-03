@@ -1,24 +1,10 @@
-function gettreenodeDeep(tree, name) {
-  const res = {}
-  const dfs = (tree, name) => {
-    if (!tree) {
-      return
-    }
-    if (tree.name === name) {
-      res.name = tree.name
-      res.code = tree.code
-      return
-    }
-    if (tree.children) {
-      for (let item of tree.children) {
-        dfs(item, name)
-      }
-    }
-
+function tar(n) {
+  for (let i = 0; i < n; i++) {
+    let str1 = ' '
+    let str2 = str1.repeat(n - i)
+    let str3 = '*'
+    let str4 = str3.repeat(2 * (i + 1) - 1)
+    console.log(str2 + str4)
   }
-
-  dfs(tree, name)
-
-  return res
-
 }
+tar(11)

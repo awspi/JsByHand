@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="top">滴滴</div>
+  <div class="box">box</div>
+</body>
+<style>
+  .top {
+    height: 1000px;
+  }
+
+  .box {
+    position: relative;
+    left: 100px;
+    top: 200px;
+    background-color: blue;
+    width: 400px;
+    height: 100px;
+  }
+
+</style>
+<script>
+  const box = document.querySelector('.box')
+  setInterval(() => {
+    console.log(box.getBoundingClientRect())
+    console.log('offsetTop', box.offsetTop) //相对于文档顶部高度
+    console.log('window.innerHeight', window.innerHeight); //视口高度
+    console.log('documentElement.scrollTop', document.documentElement.scrollTop); //页面滚动距离
+    console.log('是否可见', box.offsetTop < window.innerHeight + document.documentElement.scrollTop);
+  }
+
+    , 1000)
+</script>
+
+</html>
