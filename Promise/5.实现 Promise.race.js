@@ -6,7 +6,7 @@
 */
 Promise._race = (proms) => new Promise((resolve, reject) => {
   //todo 是否可迭代
-  // s按顺序执行 传入外层的resolve方法 首先出结果的就会先返回
+  // 按顺序执行 传入外层的resolve方法 首先出结果的就会先返回
   proms.forEach(p => void Promise.resolve(p).then(resolve, reject))
 })
 

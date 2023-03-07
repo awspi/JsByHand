@@ -31,5 +31,7 @@ const obj = {
     zxc: 11
   },
 }
+
+
 const a = deepClone(obj)
 console.log(a);

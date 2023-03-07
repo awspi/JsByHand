@@ -64,11 +64,11 @@ Promise._all([
   (data) => {
     // data:[1,2,3,4]
     // 传递[pro1,pro2,pro3,4]的话:内部默认处理Promise.resolve(4)
-    console.log("成功", data);
+    console.log("--成功", data);
   },
   (reason) => {
     // reason:reason2
-    console.log("失败", reason);
+    console.log("--失败", reason);
   }
 );
 Promise._all([

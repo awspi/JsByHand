@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div style="position: relative; width:200px;height:200px;background-color:#999999;overflow:auto;" id="外层元素">
+    <div style="position: absolute; width:100px;height:300px;background-color:#FFFF00;" id="内层元素">
+      这些文字显示在内层元素中。
+    </div>
+  </div>
+
+  <p>scrollTop值是：<span id="显示外层元素的scrollTop值"></span></p>
+
+  <script type="text/javascript">
+    var div_外层元素 = document.getElementById("外层元素");
+    div_外层元素.onscroll = 读取外层元素的scrollTop值并显示出来;
+    //注册onscroll事件处理函数。当拖动滚动条时，会产生onscroll事件
+
+    var span_显示外层元素的scrollTop值 = document.getElementById("显示外层元素的scrollTop值");
+
+    //onscroll事件的处理函数
+    function 读取外层元素的scrollTop值并显示出来() {
+      span_显示外层元素的scrollTop值.innerHTML = div_外层元素.scrollTop;
+      //读取“外层元素”此时的scrollTop的值并显示出来
+    }
+
+    读取外层元素的scrollTop值并显示出来();
+    //页面加载完成后，执行一次此函数。显示最初的scrollTop值，此时的值为0
+  </script>
+</body>
+
+</html>
