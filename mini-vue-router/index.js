@@ -11,8 +11,8 @@ function createRouter(options) {
 function useRouter() {
   return inject(ROUTER_KEY);
 }
-// history 两个模式 一个hash 一个history
-// hash模式
+// history 两个模式 一个hash 监听hashchange  一个history 监听popstate
+// hash模式 通过监听hashchange事件来更新current
 function createWebHashHistory() {
   // 用于监听hash改变
   // 在Router类的构造函数中被调用 用于保持响应式的currentURL
@@ -22,6 +22,16 @@ function createWebHashHistory() {
   return {
     bindEvents,
     url: window.location.hash.slice(1) || "/"
+  };
+}
+// history模式 通过监听popstate事件来更新current
+function createWebHistory() {
+  function bindEvents(fn) {
+    window.addEventListener("popstate", fn);
+  }
+  return {
+    bindEvents,
+    url: window.location.pathname || "/"
   };
 }
 
@@ -42,4 +52,4 @@ class Router {
     app.component("router-view", RouterView);
   }
 }
-export { createRouter, createWebHashHistory, useRouter };
+export { createRouter, createWebHashHistory, createWebHistory, useRouter };
