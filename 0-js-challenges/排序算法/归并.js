@@ -6,23 +6,25 @@
 // 递归实现
 
 const mergeSort = (arr) => {
+  // 递归终止条件
   if (arr.length < 2) return arr
-  const mid = Math.floor(arr.length / 2)
-  const left = arr.slice(0, mid)
-  const right = arr.slice(mid)
-  return merge(mergeSort(left), mergeSort(right))
+  const mid = arr.length / 2
+  const lettArr = arr.slice(0, mid)
+  const rightArr = arr.slice(mid)
+  return merge(mergeSort(lettArr), mergeSort(rightArr))
 }
+
 const merge = (left, right) => {
   const res = []
   while (left.length && right.length) {
+    // 如果左边的第一个元素小于右边的第一个元素
     if (left[0] < right[0]) {
-      res.push(left.shift())
+      res.push(left.shift()) //shift 取出第一个
     } else {
       res.push(right.shift())
     }
   }
-  // left或者right可能还有剩余元素
-  // 将剩余元素放到res中
+  //? left或者right可能还有剩余元素 直接放在后面
   return [...res, ...left, ...right]
 }
 
