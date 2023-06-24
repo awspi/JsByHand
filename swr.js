@@ -77,13 +77,15 @@ class LRUCache {
     this.cache = new Map()
   }
   get(key) {
+    //! 应该用has而不是get，因为get会返回null，而has只返回true或false
+    //? 如果用get 在if判断时，如果值为null，会被当做false
+    if (!this.cache.has(key)) return
     const val = this.cache.get(key)
-    if (val) {
-      // 如果存在，先删除，再重新插入，保证最近使用的在最前面
-      this.cache.delete(key)
-      this.cache.set(key, val)
-    }
+    // 如果存在，先删除，再重新插入，保证最近使用的在最前面
+    this.cache.delete(key)
+    this.cache.set(key, val)
     return val
+
   }
   set(key, val) {
     if (this.cache.has(key)) {
