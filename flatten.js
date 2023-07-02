@@ -18,7 +18,7 @@ const flatten2 = (arr) => {
   const len = arr.length
   for (let i = 0; i < len; i++) {
     if (Array.isArray(arr[i])) {
-      res = [...res, ...flatten(arr[i])]
+      res = [...res, ...flatten2(arr[i])]
     } else {
       res.push(arr[i])
     }

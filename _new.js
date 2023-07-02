@@ -9,6 +9,16 @@ const _new = (constructFn, ...args) => {
   return typeof res === 'object' ? res : obj
 }
 
+function myNew(constructor, ...args) {
+  // 创建一个新的对象，该对象的原型指向构造函数的原型
+  const obj = Object.create(constructor.prototype);
+  // 将构造函数的this指向新创建的对象，并执行构造函数
+  const result = constructor.apply(obj, args);
+  // 如果构造函数返回的是一个对象，则返回该对象，否则返回新创建的对象
+  return typeof result === 'object' ? result : obj;
+}
+
+
 function Animal(name) {
   this.name = name;
 }

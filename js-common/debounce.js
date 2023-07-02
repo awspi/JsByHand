@@ -18,3 +18,15 @@ function debounce(fn, delay) {
 
 const debounceFn = debounce((arg) => console.log(arg), 1000)
 debounceFn('hello')
+
+
+
+function debounce(fn, delay) {
+  let timer = null
+  return function (...args) {
+    if (timer) clearTimeout(timer)
+    timer = setTimeout(() => {
+      fn(...args)
+    }, delay);
+  }
+}

@@ -1,4 +1,4 @@
-// 实现有并行限制的 Promise 调度器
+//! 实现有并行限制的 Promise 调度器
 class Scheduler {
   constructor(max) {
     this._max = max//最大并发
@@ -14,6 +14,7 @@ class Scheduler {
     }
     this._count++
     // 使用await执行此函数
+    console.log('_count', this._count);
     const res = await fn()
     this._count--
     this._queue.length && this._queue.shift()()//执行resolve 释放阻塞的promise
@@ -37,5 +38,8 @@ const addTask = (time, val) => {
 addTask(1000, '1');
 addTask(500, '2');
 addTask(300, '3');
-addTask(400, '4');
+addTask(1000, '4');
+addTask(1000, '4');
+addTask(1000, '4');
+addTask(1000, '4');
 

@@ -76,4 +76,4 @@ function getSequence(arr) {
   return result
 }
 
-getSequence([1, 3, 2, 3, 1, 4])
+getSequence([1, 3, 2, 3, 1, 4]) // [0, 1, 3, 5]

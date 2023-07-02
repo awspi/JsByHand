@@ -16,3 +16,14 @@ function throttle(fn, delay) {
 
 const throttleFn = throttle((arg) => console.log(arg), 1000)
 throttleFn('hello')
+
+function throttle(fn, delay) {
+  let timer
+  return function (...args) {
+    if (timer) return
+    timer = setTimeout(() => {
+      fn(...args)
+      timer = null
+    }, delay);
+  }
+}

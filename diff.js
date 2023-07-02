@@ -38,8 +38,8 @@ const patchKeyedChildren = (n1, n2, container) => {
 
   //! 2.处理 新增/删除的节点
   if (startIdx > oldEndIdx && startIdx <= newEndIdx) {
-    // startIdx > oldEndIdx 说明旧节点已经遍历完了
-    // startIdx <= newEndIdx 说明新节点还没有遍历完 
+    //? startIdx > oldEndIdx 说明旧节点已经遍历完了
+    //? startIdx <= newEndIdx 说明新节点还没有遍历完 
     // 2.1 新增节点
     // 2.1.1 找到插入的位置
     const nextPos = newEndIdx + 1
@@ -50,8 +50,8 @@ const patchKeyedChildren = (n1, n2, container) => {
       patch(null, newChildren[startIdx++], container, anchor)
     }
   } else if (startIdx <= oldEndIdx && startIdx > newEndIdx) {
-    // startIdx<=oldEndIdx 说明旧节点还没有遍历完
-    // startIdx>newEndIdx 说明新节点已经遍历完了
+    //? startIdx<=oldEndIdx 说明旧节点还没有遍历完
+    //? startIdx>newEndIdx 说明新节点已经遍历完了
     // 2.2 删除节点
     while (startIdx <= oldEndIdx) {
       // 从旧节点的startIdx到oldEndIdx都是需要删除的节点
@@ -99,7 +99,7 @@ const patchKeyedChildren = (n1, n2, container) => {
           source[newIdx - newStartIdx] = i // 记录新节点在旧节点中的索引
           const newVNode = newChildren[newIdx] // 获取新节点
           patch(oldVNode, newVNode, container) // 更新节点
-          // 判断是否需要移动节点
+          // 判断是否需要移动节点 
           if (newIdx < pos) {
             // 说明需要移动节点
             moved = true
